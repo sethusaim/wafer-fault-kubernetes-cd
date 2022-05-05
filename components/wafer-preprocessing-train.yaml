@@ -1,0 +1,4 @@
+
+implementation:
+    container:
+        image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer-preprocessing-train:latest
