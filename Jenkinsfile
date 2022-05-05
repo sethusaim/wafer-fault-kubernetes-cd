@@ -16,14 +16,19 @@ pipeline {
 
       steps {
         script {
-
           catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
             withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
               sh 'git config user.email sethusaim@gmail.com'
 
               sh 'git config user.name sethusaim'
 
-              sh 'sed -i "s+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/{REPO_NAME}:.*+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/{REPO_NAME}:${BUILD_NUMBER}+g" components/{COMP_FILE}'
+              if ($REPO_NAME == "wafer-application") {
+                sh 'sed -i "s+${AWS_ACCOUNT_ID}".dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:.*${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${BUILD_NUMBER}+g" components/wafer-application.yaml'
+              } else {
+                sh 'echo "pass"'
+              }
+
+              sh 'sed -i "s+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:.*+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${BUILD_NUMBER}+g" components/{COMP_FILE}'
 
               sh 'git add .'
 

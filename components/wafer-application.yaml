@@ -1,5 +1,37 @@
-
-implementation:
-    container:
-        image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer-application:latest
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: wafer-application
+  name: wafer-application
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wafer-application
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: wafer-application
+    spec:
+      containers:
+      - image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer-clustering:latest
+        name: wafer-application
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb-service
+  labels:
+    app: lb-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: wafer-application
