@@ -8,7 +8,7 @@ pipeline {
       }
     }
 
-    stage('Updating the kubeflow component') {
+    stage('Update Kubeflow component') {
       environment {
         AWS_ACCOUNT_ID = credentials('AWS_ACCOUNT_ID')
 
