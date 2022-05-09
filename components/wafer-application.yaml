@@ -6,7 +6,7 @@ metadata:
     app: wafer-application
   name: wafer-application
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: wafer-application
@@ -18,8 +18,8 @@ spec:
         app: wafer-application
     spec:
       containers:
-      - image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer-clustering:latest
-        name: wafer-application
+        - image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer-clustering:latest
+          name: wafer-application
 status: {}
 ---
 apiVersion: v1
@@ -31,7 +31,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
-    targetPort: 5000
+    - port: 8080
+      targetPort: 8080
   selector:
     app: wafer-application
