@@ -22,7 +22,7 @@ pipeline {
 
               sh 'git config user.name sethusaim'
 
-              if ($REPO_NAME == "wafer-application") {
+              if ($REPO_NAME == "wafer_application") {
                 sh 'sed -i "s+${AWS_ACCOUNT_ID}".dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:.*${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${BUILD_NUMBER}+g" components/wafer-application.yaml'
               } else {
                 sh 'echo "pass"'
