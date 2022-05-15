@@ -1,3 +1,3 @@
 implementation:
     container:
-        image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_data_transform_pred:
+        image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_data_transform_pred:latest
