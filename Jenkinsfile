@@ -26,7 +26,7 @@ pipeline {
               
               sh 'git add .'
 
-              sh 'git commit -m "Updated kubeflow component for ${REPO_NAME} repository with build number as ${DOCKER_TAG}"'
+              sh 'git commit -m "Updated kubeflow component for ${REPO_NAME} repository with build number as ${DOCKERTAG}"'
 
               sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Wafer-Fault-Kubernetes-CD.git'
             }
