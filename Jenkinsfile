@@ -22,11 +22,11 @@ pipeline {
 
               sh 'git config user.name sethusaim'
 
-              sh 'sed -i "s+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:.*+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${BUILD_NUMBER}+g" components/${COMP_FILE}'
+              sh 'sed -i "s+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:.*+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${DOCKER_TAG}+g" components/${COMP_FILE}'
               
               sh 'git add .'
 
-              sh 'git commit -m "Updated kubeflow component for ${REPO_NAME} repository with build number as ${BUILD_NUMBER}"'
+              sh 'git commit -m "Updated kubeflow component for ${REPO_NAME} repository with build number as ${DOCKER_TAG}"'
 
               sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Wafer-Fault-Kubernetes-CD.git'
             }
