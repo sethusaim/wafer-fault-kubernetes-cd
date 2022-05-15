@@ -24,12 +24,11 @@ pipeline {
 
               if ($REPO_NAME == "wafer_application") {
                 sh 'sed -i "s+${AWS_ACCOUNT_ID}".dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:.*${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${BUILD_NUMBER}+g" components/wafer-application.yaml'
-              } else {
-                sh 'echo "pass"'
+              } 
+              else {
+                sh 'sed -i "s+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:.*+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${BUILD_NUMBER}+g" components/{COMP_FILE}'
               }
-
-              sh 'sed -i "s+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:.*+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${BUILD_NUMBER}+g" components/{COMP_FILE}'
-
+              
               sh 'git add .'
 
               sh 'git commit -m Updated kubeflow component for ${REPO_NAME} repository with build number as ${BUILD_NUMBER}'
