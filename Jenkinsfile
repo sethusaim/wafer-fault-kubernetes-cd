@@ -7,12 +7,10 @@ pipeline {
         git branch: 'main', url: 'https://github.com/sethusaim/Wafer-Fault-Kubernetes-CD.git'
       }
     }
-    
 
     stage('Update Kubeflow component') {
       environment {
         AWS_ACCOUNT_ID = credentials('AWS_ACCOUNT_ID')
-
       }
 
       steps {
@@ -23,8 +21,8 @@ pipeline {
 
               sh 'git config user.name sethusaim'
 
-              sh 'sed -i "s+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:.*+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${DOCKERTAG}+g" components/${COMP_FILE}'
-              
+              sh 'sed -i "s+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}.*+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${DOCKERTAG}+g" components/${COMP_FILE}'
+
               sh 'git add .'
 
               sh 'git commit -m "Updated kubeflow component for ${REPO_NAME} repository with build number as ${DOCKERTAG}"'
