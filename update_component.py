@@ -3,7 +3,7 @@ from os import environ
 
 new_tag = environ["DOCKERTAG"]
 
-file_name = environ["COMP_FILE"]
+file_name = "components" + "/" + environ["COMP_FILE"]
 
 
 def read_yaml():
