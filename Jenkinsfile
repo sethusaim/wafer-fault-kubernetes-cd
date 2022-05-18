@@ -20,8 +20,8 @@ pipeline {
               sh 'git config user.email sethusaim@gmail.com'
 
               sh 'git config user.name sethusaim'
-
-              sh 'sed -i "s+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}.*+${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${REPO_NAME}:${DOCKERTAG}+g" components/${COMP_FILE}'
+              
+              sh 'python3 update_component.py'
 
               sh 'git add .'
 
