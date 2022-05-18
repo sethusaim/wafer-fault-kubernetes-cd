@@ -7,6 +7,7 @@ pipeline {
         git branch: 'main', url: 'https://github.com/sethusaim/Wafer-Fault-Kubernetes-CD.git'
       }
     }
+    
 
     stage('Update Kubeflow component') {
       environment {
