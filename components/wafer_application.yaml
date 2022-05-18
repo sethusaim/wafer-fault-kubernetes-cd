@@ -18,7 +18,7 @@ spec:
         app: wafer_application
     spec:
       containers:
-        image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_application:1
+        image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_application:latest
         name: wafer_application
 status: {}
 ---
