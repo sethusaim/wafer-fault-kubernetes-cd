@@ -37,10 +37,9 @@ pipeline {
                 sshagent(credentials: ['ec2_ssh']) {
                   sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ${EC2_APP_IP} python3 deploy_application.py'
                 }
-              } else :{
+              } else {
                 sh "echo pass"
               }
-
             }
           }
         }
