@@ -23,7 +23,7 @@ def get_application_image():
 
 def run_docker_image(image):
     try:
-        if environ["BUILD_NUMBER"] == "1":
+        if environ["DOCKERTAG"] == "1":
             run(f"docker run --name wafer_app {image} -d -p 8080:8080")
 
         else:
