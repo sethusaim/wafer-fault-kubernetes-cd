@@ -23,7 +23,7 @@ pipeline {
 
               sh 'git config user.name sethusaim'
 
-              sh 'export DOCKERTAG=${DOCKERTAG}'
+              // sh 'export DOCKERTAG=${DOCKERTAG}'
 
               sh 'python3 update_component.py'
 
