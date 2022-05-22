@@ -4,5 +4,5 @@ metadata:
   name: clustering-task
 spec:
   steps:
-    - name: clustering-task
-      image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_clustering:latest
+  - name: clustering-task
+    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_clustering:1
