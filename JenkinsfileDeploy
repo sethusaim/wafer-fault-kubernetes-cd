@@ -9,7 +9,7 @@ pipeline {
 
           sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 wget https://raw.githubusercontent.com/sethusaim/Wafer-Fault-Kubernetes-CD/main/deploy_app.sh'
 
-          sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 export DOCKERTAG="${DOCKERTAG}"'
+          sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 export DOCKERTAG=${DOCKERTAG}'
 
           sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 export REPO_NAME=${REPO_NAME}'
 
