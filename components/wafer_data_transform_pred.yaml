@@ -4,5 +4,5 @@ metadata:
   name: data-transform-pred-task
 spec:
   steps:
-    - name: data-transform-pred-task
-      image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_data_transform_pred:latest
+  - name: data-transform-pred-task
+    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_data_transform_pred:1
