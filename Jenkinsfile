@@ -31,9 +31,7 @@ pipeline {
 
               sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Wafer-Fault-Kubernetes-CD.git'
 
-              if ($ {
-                  REPO_NAME
-                } == "wafer_application") {
+              if (${REPO_NAME} == "wafer_application") {
                 sshagent(credentials: ['ec2_ssh']) {
                   sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ${EC2_APP_IP} python3 deploy_application.py'
                 }
