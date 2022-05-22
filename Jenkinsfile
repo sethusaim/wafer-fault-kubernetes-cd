@@ -1,6 +1,6 @@
 pipeline {
   agent any
-
+  
   stages {
     stage("Cloning Git") {
       steps {
@@ -30,7 +30,7 @@ pipeline {
               sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Wafer-Fault-Kubernetes-CD.git'
 
               if (${REPO_NAME} == "wafer_application") {
-                sshagent(credentials: ['ec2_ssh']) 
+                sshagent (credentials: ['ec2_ssh'])                 
                 {
                   sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 347460842118.dkr.ecr.us-east-1.amazonaws.com'
 
