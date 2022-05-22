@@ -23,17 +23,19 @@ def get_application_image():
 
 def run_docker_image(image):
     try:
-        run("aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 347460842118.dkr.ecr.us-east-1.amazonaws.com")
-        
+        run(
+            "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 347460842118.dkr.ecr.us-east-1.amazonaws.com"
+        )
+
         if environ["DOCKERTAG"] == "1":
-            run(f"docker run --name wafer_app {image} -p 8080:8080")
+            run(f"docker run -p 8080:8080 --name wafer_app {image}")
 
         else:
             run("docker stop wafer_app")
 
             run("docker rm wafer_app")
 
-            run(f"docker run --name wafer_app {image} -d -p 8080:8080")
+            run(f"docker run -p 8080:8080 --name wafer_app {image}")
 
     except Exception as e:
         raise e
