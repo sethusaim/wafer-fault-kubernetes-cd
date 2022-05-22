@@ -14,25 +14,10 @@ pipeline {
 
                     sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 export REPO_NAME=${REPO_NAME}'
 
-                    steps
-                    {
-                        if (${DOCKERTAG} == "1")
-                            {
-                                sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 docker run -p 8080:8080 --name wafer_app 347460842118.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$DOCKERTAG'
-                            }
-                        else
-                        {
-                            sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 docker stop wafer_app'
+                    sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 docker run -p 8080:8080 --name wafer_app 347460842118.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$DOCKERTAG'
 
-                            sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 docker rm wafer_app'
-
-                            sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 docker run -p 8080:8080 --name wafer_app 347460842118.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$DOCKERTAG'
-                        }
                     }
-
-
                 }
             }
         }
     }
-}
