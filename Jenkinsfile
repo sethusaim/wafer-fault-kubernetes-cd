@@ -11,8 +11,6 @@ pipeline {
     stage('Update component') {
       environment {
         AWS_ACCOUNT_ID = credentials('AWS_ACCOUNT_ID')
-
-        EC2_APP_IP = credentials("EC2_APP_IP")
       }
 
       steps {
@@ -32,8 +30,11 @@ pipeline {
               sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Wafer-Fault-Kubernetes-CD.git'
 
               if (${REPO_NAME} == "wafer_application") {
-                sshagent(credentials: ['ec2_ssh']) {
-                  sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ${EC2_APP_IP} python3 deploy_application.py'
+                sshagent(credentials: ['ec2_ssh']) 
+                {
+                  sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 wget https://raw.githubusercontent.com/sethusaim/Wafer-Fault-Kubernetes-CD/main/update_component.py'
+
+                  sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 52.6.101.26 python3 deploy_application.py'
                 }
               } else {
                 sh "echo pass"
