@@ -1,0 +1,39 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: wafer-pred-pipeline
+spec:
+  tasks:
+    - name: raw-pred-data-validation
+      taskRef:
+        name: raw-pred-data-validation-task
+
+    - name: data-transform-pred
+      taskRef:
+        name: data-transform-pred-task
+      runAfter:
+        - raw-pred-data-validation
+
+    - name: db-operation-pred
+      taskRef:
+        name: db-operation-pred-task
+      runAfter:
+        - data-transform-pred
+
+    - name: clustering
+      taskRef:
+        name: clustering-task
+      runAfter:
+        - db-operation-pred
+
+    - name: preprocessing-pred
+      taskRef:
+        name: preprocessing-pred-task
+      runAfter:
+        - clustering
+
+    - name: model-prediction
+      taskRef:
+        name: model-prediction-task
+      runAfter:
+        - preprocessing-pred

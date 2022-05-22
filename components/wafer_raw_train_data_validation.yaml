@@ -1,3 +1,8 @@
-implementation:
-  container:
-    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_raw_train_data_validation:latest
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: raw-train-data-validation-task
+spec:
+  steps:
+    - name: raw-train-data-validation-task
+      image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_raw_train_data_validation:latest

@@ -1,3 +1,8 @@
-implementation:
-  container:
-    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_load_prod_model:latest
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: load-prod-model-task
+spec:
+  steps:
+    - name: load-prod-model-task
+      image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_load_prod_model:latest
