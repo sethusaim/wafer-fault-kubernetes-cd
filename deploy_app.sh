@@ -8,5 +8,4 @@ then
 
 else
     docker stop wafer_app && docker rm docker rm wafer_app && docker run -p 8080:8080 --name wafer_app 347460842118.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$DOCKERTAG
-
 fi
