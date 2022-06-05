@@ -4,5 +4,5 @@ metadata:
   name: preprocessing-train-task
 spec:
   steps:
-    - name: preprocessing-train-task
-      image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_preprocessing_train:latest
+  - name: preprocessing-train-task
+    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_preprocessing_train:1
