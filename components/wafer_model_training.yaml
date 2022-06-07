@@ -4,5 +4,5 @@ metadata:
   name: model-training-task
 spec:
   steps:
-    - name: model-training-task
-      image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_model_training:latest
+  - name: model-training-task
+    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_model_training:1
