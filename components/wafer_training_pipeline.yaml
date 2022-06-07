@@ -14,32 +14,32 @@ spec:
       runAfter:
         - raw-train-data-validation
 
-#     - name: db-operation-train
-#       taskRef:
-#         name: db-operation-train-task
-#       runAfter:
-#         - data-transform-train
+    - name: db-operation-train
+      taskRef:
+        name: db-operation-train-task
+      runAfter:
+        - data-transform-train
 
-#     - name: clustering
-#       taskRef:
-#         name: clustering-task
-#       runAfter:
-#         - db-operation-train
+    - name: clustering
+      taskRef:
+        name: clustering-task
+      runAfter:
+        - db-operation-train
 
-#     - name: preprocessing-train
-#       taskRef:
-#         name: preprocessing-train-task
-#       runAfter:
-#         - clustering
+    - name: preprocessing-train
+      taskRef:
+        name: preprocessing-train-task
+      runAfter:
+        - clustering
 
-#     - name: model-training
-#       taskRef:
-#         name: model-training-task
-#       runAfter:
-#         - preprocessing-train
+    - name: model-training
+      taskRef:
+        name: model-training-task
+      runAfter:
+        - preprocessing-train
 
-#     - name: load-prod-model
-#       taskRef:
-#         name: load-prod-model-task
-#       runAfter:
-#         - model-training
+    - name: load-prod-model
+      taskRef:
+        name: load-prod-model-task
+      runAfter:
+        - model-training
