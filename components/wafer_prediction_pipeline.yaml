@@ -20,17 +20,11 @@ spec:
       runAfter:
         - data-transform-pred
 
-    - name: clustering
-      taskRef:
-        name: clustering-task
-      runAfter:
-        - db-operation-pred
-
     - name: preprocessing-pred
       taskRef:
         name: preprocessing-pred-task
       runAfter:
-        - clustering
+        - db-operation-pred
 
     - name: model-prediction
       taskRef:
