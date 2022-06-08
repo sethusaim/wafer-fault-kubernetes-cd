@@ -20,17 +20,17 @@ spec:
       runAfter:
         - data-transform-train
 
-    - name: clustering
-      taskRef:
-        name: clustering-task
-      runAfter:
-        - db-operation-train
-
     - name: preprocessing-train
       taskRef:
         name: preprocessing-train-task
       runAfter:
-        - clustering
+        - db-operation-train
+
+    - name: clustering
+      taskRef:
+        name: clustering-task
+      runAfter:
+        - preprocessing-train
 
     - name: model-training
       taskRef:
