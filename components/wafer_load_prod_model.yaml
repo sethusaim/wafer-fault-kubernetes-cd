@@ -5,4 +5,4 @@ metadata:
 spec:
   steps:
   - name: load-prod-model-task
-    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_load_prod_model:1
+    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_load_prod_model:latest
