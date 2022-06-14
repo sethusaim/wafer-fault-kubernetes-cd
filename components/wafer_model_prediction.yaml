@@ -1,8 +1,8 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-    name: model-prediction-task
+  name: model-prediction-task
 spec:
-    steps:
-        - name: model-prediction-task
-          image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_model_prediction:latest
+  steps:
+  - name: model-prediction-task
+    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_model_prediction:1
