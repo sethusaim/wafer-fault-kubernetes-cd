@@ -36,7 +36,7 @@ spec:
       taskRef:
         name: model-training-task
       runAfter:
-        - clustering-task
+        - clustering
 
     - name: load-prod-model
       taskRef:
