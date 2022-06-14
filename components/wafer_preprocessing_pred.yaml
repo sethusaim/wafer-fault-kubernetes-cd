@@ -5,4 +5,4 @@ metadata:
 spec:
   steps:
   - name: preprocessing-pred-task
-    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_preprocessing_pred:latest
+    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_preprocessing_pred:1
