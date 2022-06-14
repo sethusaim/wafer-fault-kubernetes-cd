@@ -5,4 +5,4 @@ metadata:
 spec:
   steps:
   - name: db-operation-train-task
-    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_db_operation_train:latest
+    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_db_operation_train:1
