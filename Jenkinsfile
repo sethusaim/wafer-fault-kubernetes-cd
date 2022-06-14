@@ -9,10 +9,6 @@ pipeline {
     }
 
     stage('Update component') {
-      environment {
-        AWS_ACCOUNT_ID = credentials('AWS_ACCOUNT_ID')
-      }
-
       steps {
         script {
           catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
