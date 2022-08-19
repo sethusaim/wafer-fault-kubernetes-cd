@@ -5,7 +5,7 @@ from yaml import safe_dump, safe_load
 
 new_tag = environ["DOCKERTAG"]
 
-file_name = join("components", environ["COMP_FILE"])
+file_name = join("manifests", environ["COMP_FILE"])
 
 
 def read_yaml():
