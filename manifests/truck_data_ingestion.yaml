@@ -1,0 +1,8 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: data-ingestion-task
+spec:
+  steps:
+  - name: data-ingestion-task
+    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/truck_data_ingestion:1

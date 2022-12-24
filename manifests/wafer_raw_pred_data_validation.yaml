@@ -1,8 +1,0 @@
-apiVersion: tekton.dev/v1beta1
-kind: Task
-metadata:
-  name: raw-pred-data-validation-task
-spec:
-  steps:
-  - name: raw-pred-data-validation-task
-    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_raw_pred_data_validation:1

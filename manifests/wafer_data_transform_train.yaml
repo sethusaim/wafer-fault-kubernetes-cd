@@ -1,8 +1,0 @@
-apiVersion: tekton.dev/v1beta1
-kind: Task
-metadata:
-  name: data-transform-train-task
-spec:
-  steps:
-  - name: data-transform-train-task
-    image: 347460842118.dkr.ecr.us-east-1.amazonaws.com/wafer_data_transform_train:1
